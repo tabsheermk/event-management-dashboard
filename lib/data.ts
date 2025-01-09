@@ -21,9 +21,34 @@ export interface Event {
     name: string;
     description: string;
     location: string;
+    date: string;
     attendees: Attendee[]; 
 }
 
-export let events:Event[];
-export let attendees: Attendee[];
-export let tasks: Task[];
+// Initializing with some sample data (for testing)
+export const events: Event[] = [
+    {
+      id: 1,
+      name: "Sample Event 1",
+      description: "This is a sample event.",
+      location: "Virtual",
+      date: "2024-01-15",
+      attendees: [],
+    },
+  ];
+  
+  export const attendees: Attendee[] = [
+    { id: 1, name: "John Doe" },
+    { id: 2, name: "Jane Smith" },
+  ];
+  
+  export const tasks: Task[] = [
+    {
+      id: 1,
+      eventId: 1,
+      name: "Prepare presentation slides",
+      deadline: "2024-01-12",
+      status: "Pending",
+      attendeeId: 1,
+    },
+  ];
