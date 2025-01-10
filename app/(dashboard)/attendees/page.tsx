@@ -131,6 +131,7 @@ export default function AttendeesPage() {
           attendees={attendees}
           onDelete={handleDeleteAttendee}
           selectedEventId={selectedEventId}
+          onUpdateEventAttendees={handleUpdateEventAttendees}
           events={events}
         />
       )}

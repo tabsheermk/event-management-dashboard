@@ -43,31 +43,43 @@ export default function TaskForm({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+<form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="name">Task Name:</label>
+        <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
+          Task Name:
+        </label>
         <input
           type="text"
           id="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
       <div>
-        <label htmlFor="deadline">Deadline:</label>
+        <label
+          htmlFor="deadline"
+          className="block text-gray-700 font-bold mb-2"
+        >
+          Deadline:
+        </label>
         <input
           type="date"
           id="deadline"
           value={deadline}
           onChange={(e) => setDeadline(e.target.value)}
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
       <div>
-        <label htmlFor="attendee">Assigned Attendee:</label>
+        <label htmlFor="attendee" className="block text-gray-700 font-bold mb-2">
+          Assigned Attendee:
+        </label>
         <select
           id="attendee"
           value={attendeeId || ""}
           onChange={(e) => setAttendeeId(Number(e.target.value) || null)}
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         >
           <option value="">Unassigned</option>
           {attendees.map((attendee) => (
@@ -77,10 +89,21 @@ export default function TaskForm({
           ))}
         </select>
       </div>
-      <button type="submit">{initialTask ? "Update" : "Create"} Task</button>
-      <button type="button" onClick={onCancel}>
-        Cancel
-      </button>
+      <div className="flex items-center space-x-4">
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          {initialTask ? "Update" : "Create"} Task
+        </button>
+        <button
+          type="button"
+          onClick={onCancel}
+          className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Cancel
+        </button>
+      </div>
     </form>
   );
 }
