@@ -81,24 +81,41 @@ export default function AttendeesPage() {
   };
 
   return (
-    <div>
-      <h1>Attendee Management</h1>
+    <div className="container mx-auto p-4">
+      <h1 className="text-3xl font-bold text-gray-800 mb-6">
+        Attendee Management
+      </h1>
 
-      <button onClick={() => setShowForm(true)}>Add Attendee</button>
+      <div className="mb-4">
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          onClick={() => setShowForm(true)}
+        >
+          Add Attendee
+        </button>
+      </div>
 
       {showForm && (
-        <AttendeeForm
-          onSubmit={handleAddAttendee}
-          onCancel={() => setShowForm(false)}
-        />
+        <div className="bg-gray-100 p-4 rounded-lg mb-6">
+          <AttendeeForm
+            onSubmit={handleAddAttendee}
+            onCancel={() => setShowForm(false)}
+          />
+        </div>
       )}
 
-      <div>
-        <label htmlFor="eventSelect">Select Event:</label>
+      <div className="mb-6">
+        <label
+          htmlFor="eventSelect"
+          className="block text-gray-700 font-bold mb-2"
+        >
+          Select Event:
+        </label>
         <select
           id="eventSelect"
           value={selectedEventId || ""}
           onChange={(e) => handleEventSelect(Number(e.target.value) || null)}
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         >
           <option value="">Select an Event</option>
           {events.map((event) => (
@@ -114,7 +131,6 @@ export default function AttendeesPage() {
           attendees={attendees}
           onDelete={handleDeleteAttendee}
           selectedEventId={selectedEventId}
-          onUpdateEventAttendees={handleUpdateEventAttendees}
           events={events}
         />
       )}

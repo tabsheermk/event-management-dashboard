@@ -31,48 +31,72 @@ export default function EventForm({onSubmit, onCancel,initialEvent = null }: Eve
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
+          Name:
+        </label>
         <input
           type="text"
           id="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
       <div>
-        <label htmlFor="description">Description:</label>
+        <label
+          htmlFor="description"
+          className="block text-gray-700 font-bold mb-2"
+        >
+          Description:
+        </label>
         <textarea
           id="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
       <div>
-        <label htmlFor="location">Location:</label>
+        <label htmlFor="location" className="block text-gray-700 font-bold mb-2">
+          Location:
+        </label>
         <input
           type="text"
           id="location"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
       <div>
-        <label htmlFor="date">Date:</label>
+        <label htmlFor="date" className="block text-gray-700 font-bold mb-2">
+          Date:
+        </label>
         <input
           type="date"
           id="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
-      <button type="submit">
-        {initialEvent ? "Update" : "Create"} Event
-      </button>
-      <button type="button" onClick={onCancel}>
-        Cancel
-      </button>
+      <div className="flex items-center space-x-4">
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          {initialEvent ? "Update" : "Create"} Event
+        </button>
+        <button
+          type="button"
+          onClick={onCancel}
+          className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Cancel
+        </button>
+      </div>
     </form>
   );
 }

@@ -18,7 +18,7 @@ export default function AttendeeList({
 }: AttendeeListProps) {
   const [selectedAttendees, setSelectedAttendees] = useState<Attendee[]>([]);
 
-  // Find the selected event 
+  // Find the selected event
   const selectedEvent = events.find((event) => event.id === selectedEventId);
 
   useEffect(() => {
@@ -46,21 +46,37 @@ export default function AttendeeList({
   };
 
   return (
-    <div>
-      <ul>
-        {attendees.map((attendee) => (
-          <li key={attendee.id}>
+    <div className="mt-6">
+    <ul className="space-y-4">
+      {attendees.map((attendee) => (
+        <li
+          key={attendee.id}
+          className="bg-white p-4 rounded-lg shadow-md border border-gray-200 flex items-center justify-between"
+        >
+          <div className="flex items-center space-x-2">
             <input
               type="checkbox"
               checked={selectedAttendees.some((a) => a.id === attendee.id)}
               onChange={() => handleAttendeeSelect(attendee)}
+              className="form-checkbox h-5 w-5 text-blue-600"
             />
-            {attendee.name}
-            <button onClick={() => onDelete(attendee.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
-      <button onClick={handleUpdate}>Update Event Attendees</button>
-    </div>
+            <span className="text-gray-800">{attendee.name}</span>
+          </div>
+          <button
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded"
+            onClick={() => onDelete(attendee.id)}
+          >
+            Delete
+          </button>
+        </li>
+      ))}
+    </ul>
+    <button
+      className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      onClick={handleUpdate}
+    >
+      Update Event Attendees
+    </button>
+  </div>
   );
 }
