@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 import { tasks } from "@/lib/data";
 
 // PUT /api/tasks/[id] => Update a task's status
-export async function PUT(request: Request, { params }: { params: { id: string } }) {
-  const id = parseInt(params.id);
+export async function PUT(request: Request, context: { params: { id: string } }) {
+  const id = parseInt(context.params.id);
   const { status } = await request.json(); // Only allow updating status
 
   if (status !== "Pending" && status !== "Completed") {

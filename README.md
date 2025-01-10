@@ -26,10 +26,6 @@ pnpm dev
 bun dev
 ```
 
-P.S. There are lots of errors in the frontend and it does not work well. I had other things that needed my attention so I submitted early 
-didn't really implement all the features.
-
-
 # API Documentation
 
 ## Events API
@@ -400,3 +396,6 @@ didn't really implement all the features.
           "error": "Task not found"
         }
         ```
+
+
+P.S. There are lots of errors in the frontend and it does not work well. 
